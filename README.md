@@ -8,15 +8,15 @@ This is written in python.
 
 ## Sepcifications
 The database will contain:  
-*Patient Name
-*Patient Age
-*Patient Bloodtype
-	-A+
-	-A-
-	-B+
-	-B-
-	-AB+
-	-AB-
+* Patient Name
+* Patient Age
+* Patient Bloodtype
+	- A+
+	- A-
+	- B+
+	- B-
+	- AB+
+	- AB-
 
 ## Future additions
 1. Patient address
