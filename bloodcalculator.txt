@@ -2,11 +2,19 @@ def interface():
     print("blood calculator")
     while True:
         print("Options:")
+        print("1 = HDL")
         print("2 = Quit")
         choice = input("Select an option: ")
         if choice == "2":
             return
+        elif choice == "1":
+            HDL_driver()
+    print("Program ending")
     
+def HDL_driver():
+    HDL_number = HDL_input()
+    HDL_analysis = HDL_analysis(HDL_number)
+
 def HDL_input():
     HDL_value = input("enter the HDL Result: ")
     HDL_value = int(HDL_value)
