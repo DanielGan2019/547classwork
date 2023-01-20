@@ -1,0 +1,10 @@
+def interface():
+    print("blood calculator")
+    while True:
+        print("Options:")
+        print("2 = Quit")
+        choice = input("Select an option: ")
+        if choice == "2":
+            return
+    
+interface()
