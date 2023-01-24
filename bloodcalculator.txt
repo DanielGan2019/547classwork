@@ -78,7 +78,7 @@ def Chol_input():
     return Chol_value
 
 def Chol_analysis(Chol_int):
-    if Chol_int < 2000:
+    if Chol_int < 200:
         answer = "Normal"
     elif 200 <= Chol_int <=239:
         answer = "Borderline High"
