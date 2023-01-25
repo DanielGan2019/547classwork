@@ -4,28 +4,29 @@ def interface():
         print("Options:")
         print("1 = HDL")
         print("2 = LDL")
-        print("3 = Quit")
-        print("4 = Cholesterol")
+        print("3 = Cholesterol")
+        print("4 = Quit")
+        
         choice = input("Select an option: ")
-        if choice == "3":
+        if choice == "4":
             return
         elif choice == "1":
             HDL_driver()
         elif choice == "2":
             LDL_driver()
-        elif choice == "4":
+        elif choice == "3":
             Chol_driver()
     print("Program ending")
     
 def HDL_driver():
-    HDL_number = HDL_input()
+    HDL_number = generic_input("HDL")
     HDL_analy = HDL_analysis(HDL_number)
-    HDL_output(HDL_number, HDL_analy)
+    generic_output("HDL",HDL_number, HDL_analy)
 
-def HDL_input():
-    HDL_value = input("enter the HDL Result: ")
-    HDL_value = int(HDL_value)
-    return HDL_value
+def generic_input(test_name):
+    value = input("Enter the {} value: ".format(test_name))
+    value = int(value)
+    return value
 
 def HDL_analysis(HDL_int):
     if HDL_int >= 60:
@@ -36,19 +37,14 @@ def HDL_analysis(HDL_int):
         answer = "Low"
     return answer
 
-def HDL_output(HDL_value, HDL_analy):
-    print("The HDL result of {} is considered {}".format(HDL_value, HDL_analy))
+def generic_output(test_name, test_value, test_analy):
+    print("The {} result of {} is considered {}".format(test_name,test_value,test_analy))
     return
 
 def LDL_driver():
-    LDL_number = LDL_input()
+    LDL_number = generic_input("LDL")
     LDL_analy = LDL_analysis(LDL_number)
-    LDL_output(LDL_number, LDL_analy)
-
-def LDL_input():
-    LDL_value = input("enter the LDL Result: ")
-    LDL_value = int(LDL_value)
-    return LDL_value
+    generic_output("LDL",LDL_number, LDL_analy)
 
 def LDL_analysis(LDL_int):
     if LDL_int < 130:
@@ -61,21 +57,10 @@ def LDL_analysis(LDL_int):
         answer = "Very High"
     return answer
 
-def LDL_output(LDL_value, LDL_analy):
-    print("The LDL result of {} is considered {}".format(LDL_value, LDL_analy))
-    return
-
-
-
 def Chol_driver():
-    Chol_number = Chol_input()
+    Chol_number = generic_input("Chol")
     Chol_analy = Chol_analysis(Chol_number)
-    Chol_output(Chol_number, Chol_analy)
-
-def Chol_input():
-    Chol_value = input("enter the Cholesterol Result: ")
-    Chol_value = int(Chol_value)
-    return Chol_value
+    generic_output("Chol",Chol_number, Chol_analy)
 
 def Chol_analysis(Chol_int):
     if Chol_int < 200:
@@ -85,11 +70,6 @@ def Chol_analysis(Chol_int):
     elif 240 <= Chol_int:
         answer = "High"
     return answer
-
-def Chol_output(Chol_value, Chol_analy):
-    print("The Cholesterol result of {} is considered {}".format(Chol_value, Chol_analy))
-    return
-
 
 
 interface()
