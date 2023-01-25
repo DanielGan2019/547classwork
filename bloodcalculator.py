@@ -1,3 +1,6 @@
+print("This is the bloodcalculator.py file")
+print("Python thinks this is called {}".format(__name__))
+
 def interface():
     print("blood calculator")
     while True:
@@ -71,5 +74,5 @@ def Chol_analysis(Chol_int):
         answer = "High"
     return answer
 
-
-interface()
+if __name__ == "__main__":
+    interface()
