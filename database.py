@@ -16,16 +16,18 @@ print("The HDL analysis is {}".format(HDL_analysis))
 bc.generic_input("Other Test")
 '''
 
-def create_patient_entry(patient_name, patient_mrn, patient_age):
-    new_patient = [patient_name, patient_mrn, patient_age, []]
+def create_patient_entry(first_name, last_name, patient_mrn, patient_age):
+    #new_patient = [patient_name, patient_mrn, patient_age, []]
+    new_patient = {"First Name": first_name, "Last_Name": last_name, "MRN": patient_mrn, "Age": patient_age, "Tests": []}
     return new_patient
 
 def main_driver():
     db = []
-    db.append(create_patient_entry("Ann Ables", 1, 34))
-    db.append(create_patient_entry("Bob Boyles", 2, 45))
-    db.append(create_patient_entry("Chris Chou", 3, 52))
+    db.append(create_patient_entry("Ann", "Ables", 1, 34))
+    db.append(create_patient_entry("Bob", "Boyles", 2, 45))
+    db.append(create_patient_entry("Chris", "Chou", 3, 52))
     print(db)
+    return
     add_test_to_patient(db, 1, "HDL", 120)
     add_test_to_patient(db, 2, "LDL", 100)
     room_numbers = ["103", "232", "333"]
@@ -45,7 +47,7 @@ def get_test_value_from_test_list(test_list, test_name):
             return test[1]
     return False
  
-def get_test result(db, mrn, test_name):
+def get_test_result(db, mrn, test_name):
     patient = get_patient_entry(db, mrn)
     test_value = get_test_value_from_test_list(patient[3], test_name)
     return test_value
