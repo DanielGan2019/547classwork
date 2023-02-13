@@ -37,6 +37,7 @@ def main_driver():
     #print(db)
     #print_directory(db, room_numbers)
     print(get_test_result(db, 2, "LDL"))
+    print("{} is an {}".format(get_full_name(db[1]), minor_or_adult(db[1])))
     return
 
 def get_full_name(patient):
@@ -77,6 +78,14 @@ def add_test_to_patient(db, mrn_to_find, test_name, test_value):
     else:
         patient["Tests"].append([test_name, test_value])
     return
+
+def minor_or_adult(patient):
+    if patient["Age"] >=18:
+        return "Adult"
+    else:
+        return "Minor"
+
+
     
 
 if __name__ == "__main__":
