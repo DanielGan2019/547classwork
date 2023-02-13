@@ -2,4 +2,4 @@
 
 High density lipoproteins
 
-Health values: 1,2,3
+Health values: 1, 2, 3
