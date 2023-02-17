@@ -6,6 +6,7 @@ def y_value(p1, p2, x_input):
     b = find_intercept(p1, p2)
     y = (m * x_input) + b
     print("The y value on the line is {}".format(y))
+    y = round(y, 5)
     return y
 
 def find_intercept(p1, p2):
