@@ -1,5 +1,5 @@
-#Class Exercise
-#Making exception error for list index out of range
+# Class Exercise
+# Making exception error for list index out of range
 
 
 def main():
@@ -14,7 +14,6 @@ def gen_exception(list_size):
         return a
     except IndexError:
         print("Index is out of range, Try again")
-
 
 
 if __name__ == "__main__":

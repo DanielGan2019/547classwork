@@ -1,4 +1,4 @@
-#Feb3 classwork assignment, Daniel Gan
+# Feb3 classwork assignment, Daniel Gan
 
 
 def y_value(p1, p2, x_input):
@@ -9,8 +9,9 @@ def y_value(p1, p2, x_input):
     y = round(y, 5)
     return y
 
+
 def find_intercept(p1, p2):
-    #b = y - mx
+    # b = y - mx
     m = find_slope(p1, p2)
     y = (get_y(p1, p2))[0]
     x = (get_x(p1, p2))[0]
@@ -39,6 +40,5 @@ def get_y(p1, p2):
     return y1, y2
 
 
-
 if __name__ == "__main__":
-    y_value((1,1), (3,3), 2)
+    y_value((1, 1), (3, 3), 2)

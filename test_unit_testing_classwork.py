@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.parametrize("p1, p2, x_input, expected",
                          [((1, 1), (3, 3), 2, 2),
                           ((1.0, 1), (3.0, 3), 2, 2),
@@ -9,6 +10,7 @@ def test_y_value(p1, p2, x_input, expected):
     from unit_test_classwork import y_value
     answer = y_value(p1, p2, x_input)
     assert answer == expected
+
 
 @pytest.mark.parametrize("p1, p2, expected",
                          [((1, 1), (3, 3), (1, 3)),
