@@ -18,8 +18,9 @@ bc.generic_input("Other Test")
 
 
 def create_patient_entry(first_name, last_name, patient_mrn, patient_age):
-    #new_patient = [patient_name, patient_mrn, patient_age, []]
-    new_patient = {"First_Name": first_name, "Last_Name": last_name, "MRN": patient_mrn, "Age": patient_age, "Tests": []}
+    # new_patient = [patient_name, patient_mrn, patient_age, []]
+    new_patient = {"First_Name": first_name, "Last_Name": last_name,
+                   "MRN": patient_mrn, "Age": patient_age, "Tests": []}
     return new_patient
 
 
@@ -35,12 +36,13 @@ def main_driver():
     add_test_to_patient(db, 2, "HDL", 99)
     print(db)
     print_database(db)
-    #room_numbers = ["103", "232", "333"]
-    #print(db)
-    #print_directory(db, room_numbers)
+    # room_numbers = ["103", "232", "333"]
+    # print(db)
+    # print_directory(db, room_numbers)
     print(get_test_result(db, 2, "LDL"))
     print("{} is an {}".format(get_full_name(db[1]), minor_or_adult(db[1])))
     return
+
 
 def get_full_name(patient):
     return "{} {}".format(patient["First_Name"], patient["Last_Name"])
@@ -48,7 +50,8 @@ def get_full_name(patient):
 
 def print_database(db):
     for patient in db.values():
-        print("MRN: {}, Full Name: {}, Age: {}".format(patient["MRN"], get_full_name(patient), patient["Age"]))
+        print("MRN: {}, Full Name: {}, Age: {}".
+              format(patient["MRN"], get_full_name(patient), patient["Age"]))
 
 
 def print_directory(db, room_numbers):
@@ -87,12 +90,13 @@ def add_test_to_patient(db, mrn_to_find, test_name, test_value):
         patient["Tests"].append([test_name, test_value])
     return
 
+
 def minor_or_adult(patient):
-    if patient["Age"] >=18:
+    if patient["Age"] >= 18:
         return "Adult"
     else:
         return "Minor"
-        
+
 
 if __name__ == "__main__":
     main_driver()
