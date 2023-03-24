@@ -1,19 +1,36 @@
 from flask import Flask, request, jsonify
+from pymodm import connect
+import logging
+from PatientModel import Patient
+from pymodm import errors as pymodm_errors
 
-db = {}
+
+"""
+{"id": 1, "name": David", "blood_type": "O+", "tests": []}
+"""
+
+# db = {}
 
 app = Flask(__name__)
 
 
+def init_server():
+    logging.basicConfig(filename="server.log", flename='w')
+    connect("mongodb+srv://danielgan2001:4uJiIRylTuBANUMa@bme547.1ftggec.mongodb.net/"
+            + "health_db_2023?retryWrites=true&w=majority")
+
+
 def add_patient_to_db(id, name, blood_type):
-    new_patient = {"id": id,
-                   "name": name,
-                   "blood_type": blood_type,
-                   "tests": []}
-    db[id] = new_patient
+    new_patient = Patient(patient_id = id,
+                          patient_name = name,
+                          blood_type = blood_type)
+    saved_patient = new_patient.save()
+    return saved_patient
 
 
-def add_test_to_db(id, test_name, test_result):
+def add_test_to_db(id, test_name, test_value):
+
+
     add_test = {"id": id,
                 "test_name": test_name,
                 "test_result": test_result}
@@ -86,6 +103,7 @@ def validate_input_data(in_data):
 
 
 if __name__ == '__main__':
+    init_server()
     app.run()
 
 
